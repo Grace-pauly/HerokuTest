@@ -29,10 +29,12 @@ app.post("/payment/:phone", (req, res) => {
   const oSocket = oSockets[sFrom];
   // send messages out of turn
   for (let n = 0; n < aReply.length; n++) {
+   
     if (oSocket) {
       const data = {
-        message: aReply[n]
+        message: aReply[n] 
       };
+
       oSocket.emit('receive message', data);
     } else {
       throw new Exception("twilio code would go here");
